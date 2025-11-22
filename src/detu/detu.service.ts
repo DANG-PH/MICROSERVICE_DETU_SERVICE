@@ -15,7 +15,7 @@ export class DeTuService {
   ) {}
 
   async getDeTuByUser(userId: number): Promise<DeTu | null> {
-    return this.detuRepository.findOne({ where: { userId } });
+    return this.detuRepository.findOne({ where: { userId: userId } });
   }
 
   create(data: Partial<DeTu>): DeTu {
