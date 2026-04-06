@@ -34,12 +34,10 @@ export class DeTuService {
     let detu = await this.getDeTuByUser(data.userId);
 
     if (!detu) {
-      detu = this.create({
-        sucManh: data.sucManh ?? 2000,
-        userId: data.userId,
+      throw new RpcException({
+        code: status.NOT_FOUND,
+        message: 'Chưa có đệ tử',
       });
-      await this.saveDeTu(detu);
-      return { message: 'Tạo đệ tử mới thành công' };
     }
 
     detu.sucManh = data.sucManh ?? detu.sucManh;
