@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, Index } from 'typeorm';
 
 @Entity('detu')
 export class DeTu {
@@ -8,6 +8,7 @@ export class DeTu {
   @Column({ type: 'bigint', default: 2000 })
   sucManh: number;
 
+  @Index()
   @Column()
   userId: number;
 }
